@@ -28,7 +28,7 @@ Etape 6 : Présentation
 • Explication des choix de modélisation et d’utilisation de la BD
 
 
-Réponse que l'on a obtenue de l'IAG :
+Réponse que l'on a obtenue de l'IAG avec le prompt modifié respectant le framework RICARDO:
 1. Contexte de l'organisation et de son activité. Je suis responsable de la gestion des données au sein de l’Observatoire National des Boissons et de la Consommation Alcoolisée, établissement public à vocation de référence. Notre mission consiste à collecter, centraliser, vérifier, conserver et mettre à disposition des données fiables et à jour sur l’ensemble du secteur des boissons alcoolisées, en France et à l’international.
 Nos sources s’appuient sur des institutions reconnues : l’Organisation Internationale de la Vigne et du Vin (OIV), l’Institut National de l’Origine et de la Qualité (INAO), l’Office National des Vins et des Spiritueux, l’INSEE, les services statistiques des ministères ainsi que les textes officiels consultables sur Légifrance. Nous couvrons plusieurs domaines : la classification des boissons, les caractéristiques de chaque produit, l’identification et la localisation des producteurs, les appellations d’origine et aires géographiques délimitées, les informations sur les pays et leurs populations, la réglementation applicable à chaque territoire, les relations entre produits (comp
 osition, boissons dérivées) et enfin les statistiques annuelles de consommation.
