@@ -97,3 +97,25 @@ N°	Signification de la donnée	Type attendu	Taille / format / plage de valeurs
 33	Date de dernière mise à jour dans l’observatoire	Date	Format AAAA-MM-JJ
 Nombre de données distinctes : 33 — conforme à la fourchette demandée (25–35).
 Aucune structure de table ni relation n’a été créée : seul le niveau des données brutes est présent, comme demandé.
+
+V.3 — Étude du meilleur plan d'exécution
+
+Requête analysée:
+
+Lister les pays où la consommation de bière dépasse 50 litres par habitant.
+
+SELECT DISTINCT p.pay_nom
+FROM Pays p
+WHERE EXISTS (
+    SELECT * FROM Consommation co
+    JOIN Categorie c ON co.cat_id = c.cat_id
+    WHERE co.pay_code_iso = p.pay_code_iso
+      AND c.cat_nom = 'Bière'
+      AND co.con_volume_par_habitant > 50
+);
+
+![alt text](img/image.png)
+Le Plan B est plus performant car il applique les sélections avant les jointures. En réduisant la taille des données dès les feuilles de l'arbre, on diminue le nombre de lignes traitées dans toutes les opérations suivantes.
+
+
+Règle d'optimisation : pousser les sélections le plus bas possible dans l'arbre d'exécution.
