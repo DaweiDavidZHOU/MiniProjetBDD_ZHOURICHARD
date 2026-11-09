@@ -1,55 +1,21 @@
-SCÉNARIO D'UTILISATION — Observatoire National des Boissons et de la Consommation Alcoolisée
+# SCÉNARIO D'UTILISATION — Observatoire National des Boissons et de la Consommation Alcoolisée
 
-1. Qu'est-ce que l'Observatoire ?
+	1. Contexte
 
-L'Observatoire National des Boissons et de la Consommation Alcoolisée est un établissement public dont le but est de mieux connaître, suivre et faire connaître tout ce qui concerne les boissons alcoolisées : leur fabrication, leur origine, la réglementation qui les encadre, et la manière dont elles sont consommées dans le temps et dans les différents pays.
+L'Observatoire National des Boissons et de la Consommation Alcoolisée est un établissement public qui centralise, consolide et diffuse des données fiables sur les boissons alcoolisées, leur production, leur réglementation et leur consommation dans le temps et dans les différents pays.
 
-Ses missions principales sont de rassembler et mettre en ordre toutes les données fiables sur les boissons, leur production et leur consommation ; de mettre ces informations à disposition des pouvoirs publics, des professionnels du secteur et du grand public ; de suivre l'évolution des habitudes de consommation, par catégorie de boisson, par pays et par année ; de référencer de manière précise les appellations, les régions de production et les producteurs ; et enfin d'assurer la traçabilité, c'est-à-dire savoir de quoi sont composées les boissons, notamment celles élaborées à partir d'autres produits alcoolisés.
+	2. Acteurs et besoins
 
-2. Qui utilise l'Observatoire, et pour quoi faire ?
+Le gestionnaire assure la saisie et la fiabilité des données, le statisticien analyse les tendances de consommation, le concepteur garantit la cohérence du système et le public consulte les informations validées selon ses besoins.
 
-Le gestionnaire de l'Observatoire saisit, met à jour et vérifie toutes les informations. Son besoin essentiel est de s'assurer que les données sont complètes, exactes et cohérentes à tout moment.
+	3. Fonctionnement concret
 
-Le statisticien exploite ensuite ces chiffres pour analyser les tendances et publier des bilans. Il a besoin de voir ce qui évolue, ce qui augmente ou diminue selon les régions, les catégories ou les années.
+L'Observatoire recense chaque boisson avec ses caractéristiques, son producteur, son origine et son éventuelle appellation. Il enregistre ensuite annuellement le volume consommé par pays, en indiquant la source et le statut provisoire ou définitif de chaque mesure. Il retient également la composition des produits dérivés, les règles juridiques applicables par pays et la localisation géographique des régions et des producteurs.
 
-L'étudiant ou concepteur de la base assure la maintenance et l'amélioration du système. Il doit veiller à ce que la structure reste solide et qu'aucune information incohérente ne puisse être enregistrée.
+	4. Règles métier
 
-Enfin, le public ou les partenaires consultent les informations déjà validées. Ils veulent connaître les volumes consommés, les règles applicables dans tel ou tel pays, ou savoir d'où proviennent les chiffres présentés.
+Toute boisson appartient à une catégorie, une mesure mentionne systématiquement sa source, une boisson ne peut pas être sa propre base d'élaboration, les volumes sont toujours positifs et les codes pays respectent la norme internationale.
 
-3. Comment fonctionne concrètement la base ?
+	5. Exemples d'usage
 
-- Recenser toutes les boissons
-
-Chaque boisson est identifiée par son nom, son degré d'alcool, une description, son millésime et éventuellement sa durée de vieillissement. Elle appartient systématiquement à une grande famille comme le Vin, la Bière, les Spiritueux, les Apéritifs ou le Cidre, et peut aussi être rattachée à une sous-catégorie plus précise. Elle est fabriquée par un seul producteur, lui-même établi dans un pays donné. Elle peut en outre bénéficier d'une appellation d'origine, qui est elle-même rattachée à une région de production.
-
-- Suivre la consommation année après année
-
-Pour chaque boisson, chaque pays et chaque année, l'Observatoire note le volume consommé par habitant. Chaque mesure est datée, indiquée avec sa source — un organisme officiel, un service statistique national ou une fédération professionnelle — et porte un statut : soit provisoire, soit définitive. Toutes les mesures sont conservées, même les plus anciennes, pour pouvoir comparer les évolutions sur plusieurs années. Une mesure est reconnue comme unique grâce à l'association du pays, de la catégorie, de la boisson et de l'année concernée.
-
-- Comprendre la composition des boissons
-
-Certaines boissons sont fabriquées à partir d'autres boissons : par exemple, un spiritueux obtenu par distillation d'un vin. L'Observatoire retient ces liens : quelle boisson sert de base, quel produit est obtenu, et dans quelle proportion. Une même boisson peut entrer dans la composition de plusieurs produits différents, et un produit final peut combiner plusieurs ingrédients de base.
-
-Connaître la réglementation selon les pays
-
-Chaque pays fixe ses propres règles : âge minimum légal pour acheter de l'alcool, taux de taxation appliqué. Ces règles peuvent varier selon le type de boisson : l'âge requis ne sera pas le même pour du vin que pour des spiritueux par exemple. On note aussi la date à laquelle chaque texte est entré en vigueur, pour garder une trace complète de l'évolution juridique.
-
-Situer la production géographiquement
-
-Les pays sont identifiés par leur code officiel à deux lettres, leur nom et leur population. Chaque région de production dépend d'un seul pays et peut comporter plusieurs appellations. Un producteur est établi dans un pays et peut fabriquer plusieurs boissons différentes.
-
-4. Règles à respecter absolument
-
-Toute boisson appartient obligatoirement à une catégorie ; elle peut ne pas avoir de sous-catégorie. Une sous-catégorie n'existe qu'au sein d'une catégorie précise. Toute mesure de consommation doit indiquer sa source et son statut. Une boisson ne peut pas être sa propre base dans la composition d'un autre produit. Le volume consommé ne peut jamais être négatif. Il n'y a pas deux mesures identiques pour la même année, le même pays et la même boisson. Enfin, les codes des pays sont systématiquement conformes à la norme internationale en vigueur.
-
-5. Exemples de questions auxquelles on répond
-
-On peut par exemple obtenir la liste de toutes les boissons de la catégorie « Vin », avec le nom de leur producteur et son pays d'implantation. On peut aussi comparer la consommation de vin en France entre deux années et voir dans quelle proportion elle a évolué. Il est possible de savoir de quelles boissons est issu tel produit dérivé, ou encore de connaître l'âge minimum légal et le taux de taxation applicables en Italie pour les spiritueux. On peut aussi classer les pays européens selon le volume total consommé par habitant, toutes catégories confondues. Enfin, on peut vérifier qu'aucune mesure n'a été saisie deux fois pour la même boisson, le même pays et la même année.
-
-6. Perspectives d'amélioration
-
-À l'avenir, il est prévu de récupérer automatiquement les données depuis les sources officielles pour limiter la saisie manuelle. On souhaite aussi garder un historique des modifications apportées aux fiches des boissons, ajouter une cartographie des régions de production, et mettre en place un signalement quand une donnée est encore provisoire et attend une validation.
-
-7. Ce que contient la base en résumé
-
-On trouve d'abord la liste des catégories et des sous-catégories de boissons, avec leur nom et leurs liens d'appartenance. Viennent ensuite les pays, identifiés par leur code, leur nom et leur population. On recense également les régions de production, rattachées chacune à un pays, ainsi que les appellations avec leur nom officiel, leur type et la région dont elles dépendent. Les producteurs sont référencés avec leur raison sociale, leur année de création et leur pays d'implantation. Les boissons regroupent toutes les informations sur leur identité, leur degré d'alcool, leur fabrication, leur origine et leur classification. Les données de consommation font le lien entre catégorie, boisson, pays et année, avec les volumes, la source et le statut de chaque mesure. La réglementation est consignée par pays, avec l'âge minimum, le taux de taxation et la date d'entrée en vigueur de chaque texte. Enfin, les liens entre boissons de base et produits dérivés complètent le dispositif, avec la proportion utilisée dans chaque association.
+On peut lister les boissons d'une catégorie avec leur producteur, comparer la consommation sur deux années, connaître la composition d'un produit dérivé, consulter la réglementation d'un pays pour un type de boisson, classer les pays par volume consommé ou vérifier l'absence de doublon dans les mesures.
