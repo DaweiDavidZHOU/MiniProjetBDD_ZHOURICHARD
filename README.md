@@ -101,21 +101,48 @@ Aucune structure de table ni relation n’a été créée : seul le niveau des d
 V.3 — Étude du meilleur plan d'exécution
 
 Requête analysée:
+Pays avec la plus forte consommation de vin en 2023:
 
-Lister les pays où la consommation de bière dépasse 50 litres par habitant.
-
-SELECT DISTINCT p.pay_nom
+SELECT p.pay_nom
 FROM Pays p
-WHERE EXISTS (
-    SELECT * FROM Consommation co
+WHERE p.pay_code_iso IN (
+    SELECT co.pay_code_iso
+    FROM Consommation co
     JOIN Categorie c ON co.cat_id = c.cat_id
-    WHERE co.pay_code_iso = p.pay_code_iso
-      AND c.cat_nom = 'Bière'
-      AND co.con_volume_par_habitant > 50
+    WHERE c.cat_nom = 'Vin'
+      AND co.con_annee = 2023
+      AND co.con_volume_par_habitant = (
+          SELECT MAX(c2_con.con_volume_par_habitant)
+          FROM Consommation c2_con
+          JOIN Categorie c2_cat ON c2_con.cat_id = c2_cat.cat_id
+          WHERE c2_cat.cat_nom = 'Vin' 
+            AND c2_con.con_annee = 2023
+      )
 );
 
+Plan 1
+R₁ = σ_{C.cat_nom = 'Vin' ∧ Co.con_annee = 2023}
+       ( Consommation ⨯_{Co.cat_id = C.cat_id} Categorie )
+
+M₁ = γ_{MAX(con_volume_par_habitant) → m} ( R₁ )
+
+G₁ = R₁ ⨯_{con_volume_par_habitant = m} M₁
+
+Q₁ = π_{P.pay_nom} ( Pays ⋉_{pay_code_iso} G₁ )
+
+
+Plan 2
+R₂ = ( σ_{con_annee = 2023}(Consommation) )
+     ⨯_{cat_id}
+     ( σ_{cat_nom = 'Vin'}(Categorie) )
+
+M₂ = γ_{MAX(con_volume_par_habitant) → m} ( R₂ )
+
+G₂ = R₂ ⨯_{con_volume_par_habitant = m} M₂
+
+Q₂ = π_{P.pay_nom} ( Pays ⋉_{pay_code_iso} G₂ )
+
 ![alt text](img/image.png)
-Le Plan B est plus performant car il applique les sélections avant les jointures. En réduisant la taille des données dès les feuilles de l'arbre, on diminue le nombre de lignes traitées dans toutes les opérations suivantes.
 
-
+Le Plan 2 est meilleur parce qu'il applique les filtres avant de faire les jointures.
 Règle d'optimisation : pousser les sélections le plus bas possible dans l'arbre d'exécution.
