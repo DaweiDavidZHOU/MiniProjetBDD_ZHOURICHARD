@@ -4,21 +4,24 @@
 -- 1. Pays
 INSERT INTO Pays (pay_code_iso, pay_nom, pay_population) VALUES
 ('FR', 'France', 68000000),
-('DE', 'Allemagne', 84550000),
-('IT', 'Italie', 58850000),
-('ES', 'Espagne', 48600000),
-('PT', 'Portugal', 10350000),
-('GB', 'Royaume-Uni', 67700000),
-('US', 'États-Unis', 334900000),
-('AR', 'Argentine', 46200000),
+('DE', 'Allemagne', 84000000),
+('IT', 'Italie', 59000000),
+('ES', 'Espagne', 48000000),
+('BE', 'Belgique', 11700000),
+('US', 'États-Unis', 334000000),
+('GB', 'Royaume-Uni', 67000000),
+('JP', 'Japon', 125000000),
+('AU', 'Australie', 26000000),
+('NZ', 'Nouvelle-Zélande', 5200000),
 ('CL', 'Chili', 19600000),
-('AU', 'Australie', 26300000),
-('NZ', 'Nouvelle-Zélande', 5100000),
-('ZA', 'Afrique du Sud', 60600000),
-('JP', 'Japon', 125700000),
-('BE', 'Belgique', 11600000),
-('NL', 'Pays-Bas', 17900000),
-('CH', 'Suisse', 8700000);
+('ZA', 'Afrique du Sud', 60000000),
+('AR', 'Argentine', 46000000),
+('CH', 'Suisse', 8700000),
+('AT', 'Autriche', 9100000),
+('HU', 'Hongrie', 9700000),
+('NL', 'Pays-Bas', 17800000),
+('CA', 'Canada', 39000000),
+('PT', 'Portugal', 10300000);
 
 -- 2. Categorie
 INSERT INTO Categorie (cat_id, cat_nom) VALUES
