@@ -1,0 +1,108 @@
+Tu es un générateur de données réalistes pour une base de données MySQL nommée `projet_alcool`.
+
+---
+RÈGLES GÉNÉRALES
+---
+- Génère un script SQL complet `3_insertion.sql` contenant uniquement des instructions `INSERT INTO` valides pour MySQL.
+- Respecte strictement l'ordre d'insertion pour éviter les erreurs de clé étrangère.
+- Toutes les chaînes de caractères sont en UTF-8, sans accents mal encodés.
+- Les valeurs doivent être réalistes, crédibles et cohérentes entre les tables.
+- N'ajoute aucun commentaire hors des blocs de consigne, aucune explication, aucun texte hors le code SQL.
+- N'utilise pas de valeurs identiques ou répétitives inutilement.
+
+---
+STRUCTURE DES DONNÉES & CONTRAINTES
+---
+
+1. **Pays** — au moins 15 pays
+   - pay_code_iso : code à 2 lettres (FR, DE, IT, ES, GB, US, etc.)
+   - pay_nom : nom en français
+   - pay_population : entier strictement positif (entre 500 000 et 1 500 000 000)
+
+2. **Categorie** — au moins 6 catégories
+   - cat_id : entier unique ≥ 1
+   - cat_nom : ex: Vin, Bière, Eau-de-vie, Liqueur, Spiritueux, Apéritif
+
+3. **SousCategorie** — 2 à 4 sous-catégories par catégorie
+   - cat_id : référence vers Categorie
+   - scat_id : identifiant propre à la catégorie
+   - scat_nom : ex: pour Vin → Rouge, Blanc, Rosé, Effervescent
+
+4. **RegionProduction** — au moins 25 régions
+   - reg_id : unique ≥ 1
+   - reg_nom : nom de région viticole ou de production réaliste
+   - pay_code_iso : référence vers Pays
+
+5. **Appellation** — au moins 35 appellations
+   - app_id : unique ≥ 1
+   - app_nom_officiel : nom d'appellation réaliste
+   - app_type : max 10 caractères (ex: AOC, IGP, AOP, VinDePays)
+   - reg_id : référence vers RegionProduction
+
+6. **Producteur** — au moins 40 producteurs
+   - pro_id : unique ≥ 1
+   - pro_raison_sociale : raison sociale crédible
+   - pro_annee_creation : entre 1800 et 2030, peut être NULL
+   - pay_code_iso : référence vers Pays
+
+7. **Reglementation** — au moins 15 réglementations
+   - regl_id : unique ≥ 1
+   - regl_intitule : nom de loi ou décret réaliste
+   - regl_date_entree_vigueur : entre 1900-01-01 et 2030-12-31
+   - regl_age_minimum_achat : entre 0 et 25
+   - regl_taux_taxation : entre 0.00 et 100.00
+   - pay_code_iso : référence vers Pays
+
+8. **Concerne** — au moins 20 associations
+   - regl_id × cat_id : une réglementation peut viser plusieurs catégories et inversement
+
+9. **Boisson** — au moins 60 boissons
+   - boi_id : unique ≥ 1
+   - boi_nom : nom commercial réaliste
+   - boi_degre_alcool : entre 0.01 et 99.99
+   - boi_description : texte descriptif
+   - boi_millesime : entre 1900 et 2030 ou NULL
+   - boi_vieillissement_mois : ≥ 0 ou NULL
+   - app_id : peut être NULL
+   - pro_id : référence vers Producteur
+   - cat_id : référence vers Categorie
+   - scat_id : référence vers SousCategorie, peut être NULL
+
+10. **Consommation** — au moins 80 enregistrements
+    - cat_id, boi_id, pay_code_iso, con_annee : clé composite unique
+    - con_annee : entre 1900 et 2030
+    - con_volume_par_habitant : ≥ 0
+    - source : nom d'organisme réaliste
+    - statut : 'provisoire' ou 'définitive'
+    - date_maj : date réaliste
+
+11. **EstBaseDe** — au moins 15 liaisons
+    - boi_id_base / boi_id_derivee : boissons distinctes
+    - proportion : entre 0.01 et 100.00
+
+---
+CONTRAINTES SUPPLÉMENTAIRES À RESPECTER
+---
+- NULL autorisé uniquement sur : scat_id, app_id, boi_millesime, boi_vieillissement_mois, pro_annee_creation
+- Les clés étrangères référencent systématiquement des valeurs existantes
+- ON DELETE/UPDATE CASCADE/RESTRICT est géré par le schéma, pas par tes instructions
+
+---
+ORDRE D'INSERTION OBLIGATOIRE
+---
+1. Pays
+2. Categorie
+3. SousCategorie
+4. RegionProduction
+5. Appellation
+6. Producteur
+7. Reglementation
+8. Concerne
+9. Boisson
+10. Consommation
+11. EstBaseDe
+
+---
+RÉALISATION
+---
+Génère maintenant le script SQL complet respectant tout ce qui précède.
